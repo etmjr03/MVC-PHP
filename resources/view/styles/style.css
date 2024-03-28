@@ -4,8 +4,47 @@
   box-sizing: border-box;
 }
 
+.invocador {
+  display: grid;
+  width: 100%;
+  height: 650px;
+  border: 2px solid #FFF;
+  border-radius: 10px;
+  position: relative;
+  z-index: -2;
+}
+
+.nome-invocador {
+  font-size: 60px;
+  justify-self: center;
+  top: 0;
+  position: absolute;
+}
+
+.level-invocador {
+  justify-self: center;
+  top: 180px;
+  position: absolute;
+}
+
+.borda-icone-invocador {
+  width: 600px;
+  height: 750px;
+  justify-self: center;
+  bottom: 0;
+  position: absolute;
+}
+
 .icone-invocador {
   width: 200px;
-  height: 200px;
+  height: 195px;
+  border-radius: 50%;
+  justify-self: center;
+  bottom: 205px;
+  position: absolute;
+  z-index: -1;
+}
+
+.icone-campeao-maestria {
   border-radius: 50%;
 }
