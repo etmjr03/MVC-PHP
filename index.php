@@ -29,6 +29,7 @@ foreach ($obMaestriaInvocador as $key => $MaestriaInvocador) {
 $arrayVariaveis = [
   'nome'     => $obInfosInvocador['name'],
   'level'    => $obInfosInvocador['summonerLevel'],
+  'urlIcone'    => Riot::getIconeUrlInvocador($nomeInvocador, $apiKey),
   'maestria' => $textoMaestria
 ];
 
