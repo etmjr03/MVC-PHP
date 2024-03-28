@@ -25,13 +25,20 @@ class View {
   /**
    * @method responsável por retornar o conteúdo renderizado de uma view
    * @param string $view (nome da view)
+   * @param array $vars (array de valores somente de string e number)
    * @return string
    */
-  public static function render($view) : string {
+  public static function render($view, $vars = null) : string {
     //CONTEÚDO DA VIEW
     $conteudoView = self::getContentView($view);
 
-    //RETORNA O CONTEÚDO RENDERIZADO
-    return $conteudoView;
+    //CONCATENA AS CHAVES DO ARRAY DE VARIÁVEIS COM AS CHAVES QUE REPRESENTAM UMA VARIÁVEL NO LAYOUT
+    $keys = array_keys($vars);
+    $keys = array_map(function($item) {
+      return '{{'.$item.'}}';
+    }, $keys);
+
+    //SUBSTITUI AS VARIÁVEIS DENTRO DO LAYOUT PELO VALOR DO ARRAY E RETORNA O CONTEÚDO RENDERIZADO
+    return str_replace($keys, array_values($vars), $conteudoView);
   }
 }

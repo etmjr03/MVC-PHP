@@ -16,6 +16,12 @@ class Home {
    * @return string
    */
   public static function getHome() : string {
-    return View::render('pages/home');
+    $arrayVariaveis = [
+      'nome'    => 'juninho',
+      'campeao' => 'Nida Lee',
+      'numero'  => 1
+    ];
+
+    return View::render('pages/home', $arrayVariaveis);
   }
 }
