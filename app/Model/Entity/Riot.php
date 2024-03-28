@@ -101,4 +101,16 @@ class Riot {
 
     return $maestria;
   }
+
+  /**
+   * @method responsável por retornar o ícone de invocador
+   * @param string $nomeInvocador (nome do invocador)
+   * @param string $apiKey (api key da sua conta riot)
+   * @return string imagem do icone de invocador
+   */
+  public static function getIconeUrlInvocador($nomeInvocador, $apiKey) : string {
+    $dadosInvocador = self::getDadosInvocador($nomeInvocador, $apiKey);
+
+    return 'https://ddragon.leagueoflegends.com/cdn/14.6.1/img/profileicon/'.$dadosInvocador['profileIconId'].'.png';
+  }
 }
