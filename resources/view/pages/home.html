@@ -1,11 +1,18 @@
-<form class="mb-5" method="post">
-  <p>Digite seu nome de invocador</p>
-  <input type="text" name="nomeInvocador">
-  <button type="submit">Enviar</button>
-</form>
+<div class="formulario-nome-invocador text-center">
+  <form class="mb-5" method="post">
+    <p>Digite seu nome de invocador</p>
+    <input type="text" name="nomeInvocador">
+    <button type="submit">Enviar</button>
+  </form>
+</div>
 
-<img class="icone-invocador" src="{{urlIcone}}" alt="ícone de invocador">
+<div class="invocador">
+  <img class="borda-icone-invocador" src="./resources/view/images/bordas-icone/Master.png" alt="" srcset="">
+  <img class="icone-invocador" src="{{urlIcone}}" alt="ícone de invocador">
+  <span class="nome-invocador">{{nome}}</span>
+  <span class="level-invocador">Nível: {{level}}</span>
+</div>
 
-<p>Nome de invocador: <b class="text-success">{{nome}}</b> - Nível: <b class="text-success">{{level}}</b></p>
-
-{{maestria}}
+<div class="m-5 text-center">
+  {{maestria}}
+</div>

@@ -18,9 +18,9 @@ $obCampeoesLOL       = $obRiot->getCampoesLOL();
 
 //MONTA AS INFORMAÇÕES DA MAESTRIA
 foreach ($obMaestriaInvocador as $key => $MaestriaInvocador) {
-  $imgChampion = '<img src="'.$MaestriaInvocador['imagemCampeao'].'" alt="">';
+  $imgChampion = '<img class="icone-campeao-maestria" src="'.$MaestriaInvocador['imagemCampeao'].'" alt="">';
 
-  $informacaoMaestria = "<p class='mb-1'>{$imgChampion} Campeão: {$MaestriaInvocador['nomeCampeao']}, Nível: {$MaestriaInvocador['nivelMaestria']} e pontos: {$MaestriaInvocador['pontoMaestria']} </p><br>";
+  $informacaoMaestria = "<p class='m-2'>{$imgChampion} Campeão: {$MaestriaInvocador['nomeCampeao']}, Nível: {$MaestriaInvocador['nivelMaestria']} e pontos: {$MaestriaInvocador['pontoMaestria']} </p><br>";
 
   $todosOsCampeoesMaestria[] = $informacaoMaestria;
   $textoMaestria = implode(' ', $todosOsCampeoesMaestria);
@@ -33,4 +33,4 @@ $arrayVariaveis = [
   'maestria' => $textoMaestria
 ];
 
-echo Home::getHome('Início', $arrayVariaveis);
+echo Home::getHome('Invocador', $arrayVariaveis);
