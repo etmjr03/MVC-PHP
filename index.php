@@ -5,4 +5,10 @@ require __DIR__.'/vendor/autoload.php';
 
 use \App\Controller\Pages\Home;
 
-echo Home::getHome();
+$arrayVariaveis = [
+  'nome'    => 'juninho',
+  'campeao' => 'Nida Lee',
+  'numero'  => 1
+];
+
+echo Home::getHome('Início', $arrayVariaveis);

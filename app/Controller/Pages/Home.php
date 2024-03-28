@@ -9,19 +9,19 @@ use App\Utils\View;
  * @author Juninho
  */
 
-class Home {
+class Home extends Page {
 
   /**
    * @method responsável por retornar o conteúdo (view) da nossa home
+   * @param string $title titulo da página
+   * @param array $vars (array de valores somente de string e number)
    * @return string
    */
-  public static function getHome() : string {
-    $arrayVariaveis = [
-      'nome'    => 'juninho',
-      'campeao' => 'Nida Lee',
-      'numero'  => 1
-    ];
+  public static function getHome($title, $vars) : string {
+    //VIEW DA HOME E SUAS VARIÁVEIS
+    $content = View::render('pages/home', $vars);
 
-    return View::render('pages/home', $arrayVariaveis);
+    //RETORNA A VIEW DA PÁGINA COM OS CONTEÚDOS DA HOME
+    return parent::getPage($title, $content);
   }
 }
