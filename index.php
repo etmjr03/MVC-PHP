@@ -19,9 +19,10 @@ $obEloInvocador      = $obRiot->getInformacoesElo($nomeInvocador, $apiKey);
 
 //MONTA AS INFORMAÇÕES DA MAESTRIA
 foreach ($obMaestriaInvocador as $key => $MaestriaInvocador) {
-  $imgChampion = '<img class="icone-campeao-maestria" src="'.$MaestriaInvocador['imagemCampeao'].'" alt="">';
+  $imgChampion    = '<img class="icone-campeao-maestria" src="'.$MaestriaInvocador['imagemCampeao'].'" alt="'.$MaestriaInvocador['pontoMaestria'].'">';
+  $pontosMaestria = '<p class="pontos-maestria-invocador">Pontos: '.$MaestriaInvocador['pontoMaestria'].' | Nível: '.$MaestriaInvocador['nivelMaestria']. '</p>';
 
-  $informacaoMaestria = "<p class='m-2'>{$imgChampion} Campeão: {$MaestriaInvocador['nomeCampeao']}, Nível: {$MaestriaInvocador['nivelMaestria']} e pontos: {$MaestriaInvocador['pontoMaestria']} </p><br>";
+  $informacaoMaestria = "<div class='m-2'>{$imgChampion} {$pontosMaestria}</div>";
 
   $todosOsCampeoesMaestria[] = $informacaoMaestria;
   $textoMaestria = implode(' ', $todosOsCampeoesMaestria);
@@ -30,7 +31,7 @@ foreach ($obMaestriaInvocador as $key => $MaestriaInvocador) {
 $arrayVariaveis = [
   'nome'     => $obInfosInvocador['name'],
   'level'    => $obInfosInvocador['summonerLevel'],
-  'urlIcone'    => Riot::getIconeUrlInvocador($nomeInvocador, $apiKey),
+  'urlIcone' => Riot::getIconeUrlInvocador($nomeInvocador, $apiKey),
   'maestria' => $textoMaestria,
   'elo'      => Riot::getElo($nomeInvocador, $apiKey),
   'vitoria'  => $obEloInvocador['wins'],
@@ -38,5 +39,4 @@ $arrayVariaveis = [
   'pdl'      => $obEloInvocador['leaguePoints']
 ];
 
-//echo '<pre>'; print_r($obEloInvocador); exit;
 echo Home::getHome('Invocador', $arrayVariaveis);

@@ -4,13 +4,37 @@
   box-sizing: border-box;
 }
 
+.background {
+  background: #1e2328;
+}
+
 .invocador {
   display: grid;
+  background: #1e2328;
   width: 100%;
-  height: 650px;
-  border: 2px solid #FFF;
+  height: 800px;
   border-radius: 10px;
   position: relative;
+  z-index: -2;
+}
+
+.invocador::before {
+  content: '';
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(#00ccff, #d400b2);
+  border-radius: 10px;
+  overflow: hidden;
+  position: absolute;
+  z-index: -3;
+}
+
+.invocador::after {
+  content: '';
+  background: #1e2328;
+  border-radius: 10px;
+  inset: 4px;
+  position: absolute;
   z-index: -2;
 }
 
@@ -22,8 +46,12 @@
 }
 
 .level-invocador {
+  background: #1e2328;
+  padding: 5px;
+  border: 2px solid #FFF;
+  border-radius: 10px;
   justify-self: center;
-  top: 180px;
+  top: 160px;
   position: absolute;
 }
 
@@ -31,7 +59,7 @@
   width: 600px;
   height: 750px;
   justify-self: center;
-  bottom: 0;
+  bottom: 150px;
   position: absolute;
 }
 
@@ -40,17 +68,47 @@
   height: 195px;
   border-radius: 50%;
   justify-self: center;
-  bottom: 205px;
+  bottom: 355px;
   position: absolute;
   z-index: -1;
 }
 
 .vitoria-invocador {
+  background: #1e2328;
+  padding: 5px;
+  border: 2px solid #FFF;
+  border-radius: 10px;
   justify-self: center;
+  top: 100px;
+  position: absolute;
+}
+
+.divisao-invocador {
+  font-size: 25px;
+  justify-self: center;
+  top: 228px;
+  position: absolute;
+}
+
+.maestria-invocador {
+  display: flex;
+  width: 100%;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
   bottom: 0;
   position: absolute;
 }
 
 .icone-campeao-maestria {
   border-radius: 50%;
+}
+
+.pontos-maestria-invocador {
+  margin-top: 10px;
+  background: #1e2328;
+  padding: 5px;
+  border: 2px solid #FFF;
+  border-radius: 10px;
 }
