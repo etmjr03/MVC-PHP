@@ -28,6 +28,11 @@ class Riot {
   const ENDPOINT_MAESTRIA = 'https://br1.api.riotgames.com/lol/champion-mastery/v4/champion-masteries/by-puuid/';
 
   /**
+   * Endpoint de informações de elo do invocador pelo seu id
+   */
+  const ENDPOINT_ELO = 'https://br1.api.riotgames.com/lol/league/v4/entries/by-summoner/';
+
+  /**
    * @method responsável por retornar um array com id, nome e imagem de todos os campeções do LOL
    * @return array
    */
@@ -112,5 +117,59 @@ class Riot {
     $dadosInvocador = self::getDadosInvocador($nomeInvocador, $apiKey);
 
     return 'https://ddragon.leagueoflegends.com/cdn/14.6.1/img/profileicon/'.$dadosInvocador['profileIconId'].'.png';
+  }
+
+  /**
+   * @method responsável por retornar as informações de elo do invocador
+   * @param string $nomeInvocador (nome do invocador)
+   * @param string $apiKey (api key da sua conta riot)
+   * @return array informações sobre elo do invocador
+   */
+  public static function getInformacoesElo($nomeInvocador, $apiKey) : array {
+    $dadosInvocador = self::getDadosInvocador($nomeInvocador, $apiKey);
+
+    return json_decode(file_get_contents(self::ENDPOINT_ELO.''.$dadosInvocador['id'].'?api_key='.$apiKey), true)[0];
+  }
+
+  /**
+   * @method responsável por retornar o elo do invocador
+   * @param string $nomeInvocador (nome do invocador)
+   * @param string $apiKey (api key da sua conta riot)
+   * @return string elo do invocador
+   */
+  public static function getElo($nomeInvocador, $apiKey) : string {
+    $infosElo = self::getInformacoesElo($nomeInvocador, $apiKey);
+
+    switch ($infosElo['tier']) {
+      case 'CHALLENGER':
+        $elo = 'Challenger';
+        break;
+      case 'GRAND':
+        $elo = 'Grand';
+        break;
+      case 'MASTER':
+        $elo = 'Master';
+        break;
+      case 'DIAMOND':
+        $elo = 'Diamond';
+        break;
+      case 'EMERALD':
+        $elo = 'Emerald';
+        break;
+      case 'PLATINUM':
+        $elo = 'Platinum';
+        break;
+      case 'GOLD':
+        $elo = 'Gold';
+        break;
+      case 'SILVER':
+        $elo = 'Silver';
+        break;
+      case 'IRON':
+        $elo = 'Iron';
+        break;
+    }
+
+    return $elo;
   }
 }
