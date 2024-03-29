@@ -15,6 +15,7 @@ $obRiot              = new Riot;
 $obInfosInvocador    = $obRiot->getDadosInvocador($nomeInvocador, $apiKey);
 $obMaestriaInvocador = $obRiot->getMaioresMaestriasInvocador($nomeInvocador, $apiKey);
 $obCampeoesLOL       = $obRiot->getCampoesLOL();
+$obEloInvocador      = $obRiot->getInformacoesElo($nomeInvocador, $apiKey);
 
 //MONTA AS INFORMAÇÕES DA MAESTRIA
 foreach ($obMaestriaInvocador as $key => $MaestriaInvocador) {
@@ -30,7 +31,12 @@ $arrayVariaveis = [
   'nome'     => $obInfosInvocador['name'],
   'level'    => $obInfosInvocador['summonerLevel'],
   'urlIcone'    => Riot::getIconeUrlInvocador($nomeInvocador, $apiKey),
-  'maestria' => $textoMaestria
+  'maestria' => $textoMaestria,
+  'elo'      => Riot::getElo($nomeInvocador, $apiKey),
+  'vitoria'  => $obEloInvocador['wins'],
+  'divisao'  => $obEloInvocador['rank'],
+  'pdl'      => $obEloInvocador['leaguePoints']
 ];
 
+//echo '<pre>'; print_r($obEloInvocador); exit;
 echo Home::getHome('Invocador', $arrayVariaveis);

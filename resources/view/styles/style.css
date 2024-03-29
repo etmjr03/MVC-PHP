@@ -45,6 +45,12 @@
   z-index: -1;
 }
 
+.vitoria-invocador {
+  justify-self: center;
+  bottom: 0;
+  position: absolute;
+}
+
 .icone-campeao-maestria {
   border-radius: 50%;
 }
