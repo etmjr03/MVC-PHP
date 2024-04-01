@@ -20,9 +20,10 @@ $obEloInvocador      = $obRiot->getInformacoesElo($nomeInvocador, $apiKey);
 //MONTA AS INFORMAÇÕES DA MAESTRIA
 foreach ($obMaestriaInvocador as $key => $MaestriaInvocador) {
   $imgChampion    = '<img class="icone-campeao-maestria" src="'.$MaestriaInvocador['imagemCampeao'].'" alt="'.$MaestriaInvocador['pontoMaestria'].'">';
-  $pontosMaestria = '<p class="pontos-maestria-invocador">Pontos: '.$MaestriaInvocador['pontoMaestria'].' | Nível: '.$MaestriaInvocador['nivelMaestria']. '</p>';
+  $pontosMaestria = '<p class="pontos-maestria-invocador">Pontos: '.$MaestriaInvocador['pontoMaestria'].'</p>';
+  $iconeMaestria  = '<img class="icone-maestria" src="resources/view/images/icones-maestria/m'.$MaestriaInvocador['nivelMaestria'].'.png" alt="">';
 
-  $informacaoMaestria = "<div class='m-2'>{$imgChampion} {$pontosMaestria}</div>";
+  $informacaoMaestria = "<div class='m-2'>{$imgChampion} {$pontosMaestria} {$iconeMaestria}</div>";
 
   $todosOsCampeoesMaestria[] = $informacaoMaestria;
   $textoMaestria = implode(' ', $todosOsCampeoesMaestria);

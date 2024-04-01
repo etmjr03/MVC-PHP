@@ -102,6 +102,7 @@
 }
 
 .icone-campeao-maestria {
+  width: 80px;
   border-radius: 50%;
 }
 
@@ -111,4 +112,8 @@
   padding: 5px;
   border: 2px solid #FFF;
   border-radius: 10px;
+}
+
+.icone-maestria {
+  width: 80px;
 }
